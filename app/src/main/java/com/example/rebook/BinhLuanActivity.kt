@@ -32,7 +32,7 @@ class BinhLuanActivity : AppCompatActivity() {
     private var bookId: Int = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBinhLuanBinding.inflate(layoutInflater)
@@ -41,35 +41,60 @@ class BinhLuanActivity : AppCompatActivity() {
         val factory = CommentFactory(this)
         viewModel = ViewModelProvider(this, factory)[CommentViewModel::class.java]
 
+        binding.btnThoatBinhLuan.setOnClickListener { onBackPressed() }
+
         val bundle = intent.extras
         if (bundle != null) {
             userId = bundle.getInt("userId")
             bookId = bundle.getInt("bookId")
         }
-        binding.btnThoatBinhLuan.setOnClickListener { onBackPressed() }
 
-        loadDataFromDatabase()
-        binding.rvComment.layoutManager = LinearLayoutManager(
-            this,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
+        var check = 0
 
-        viewModel.commentList.observe(this) { newList ->
-            adapter = CommentAdapter(this, newList)
-            binding.rvComment.adapter = adapter
+        val db = helper.readableDatabase
+        val rs = db.rawQuery("select * from comments_book", null)
+        if (rs.moveToFirst()) {
+            do {
+                if (bookId == rs.getInt(2)) {
+                    check++
+                }
+            } while (rs.moveToNext())
+        }
+
+        if (check != 0) {
+            loadDataFromDatabase()
+            binding.rvComment.layoutManager = LinearLayoutManager(
+                this,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+
+            viewModel.commentList.observe(this) { newList ->
+                adapter = CommentAdapter(this, newList)
+                binding.rvComment.adapter = adapter
+            }
+
+        } else {
+            binding.rvComment.layoutManager = LinearLayoutManager(
+                this,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+            viewModel.commentList.observe(this) { newList ->
+                adapter = CommentAdapter(this, newList)
+                binding.rvComment.adapter = adapter
+            }
         }
 
         binding.btnCMT.setOnClickListener {
             var rate = binding.rateUser.rating.toInt()
             val title = binding.edBinhLuan.text.toString().trim()
-            if(TextUtils.isEmpty(rate.toString())){
+            if (TextUtils.isEmpty(rate.toString())) {
                 rate = 5
-            }else if(TextUtils.isEmpty(title)){
+            } else if (TextUtils.isEmpty(title)) {
                 binding.edBinhLuan.error = "Comment is empty"
                 binding.edBinhLuan.focusable
-            }
-            else{
+            } else {
 //                Toast.makeText(this, "$rate", Toast.LENGTH_SHORT).show()
                 viewModel.insertComment(userId, bookId, rate, title)
                 loadDataFromDatabase()
@@ -81,9 +106,9 @@ class BinhLuanActivity : AppCompatActivity() {
 
     }
 
-    private fun loadDataFromDatabase(){
+    private fun loadDataFromDatabase() {
         CoroutineScope(Dispatchers.IO).launch {
-            val commentList = helper.getAllComment()
+            val commentList = helper.getAllComment(bookId)
             withContext(Dispatchers.Main) {
                 viewModel.updateCommentList(commentList)
             }

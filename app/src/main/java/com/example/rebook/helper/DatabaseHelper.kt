@@ -225,10 +225,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK",
         return db.insert("comments_book", null, cv)
     }
 
-    fun getAllComment(): List<Comment>{
+    fun getAllComment(book_id:Int): List<Comment>{
         db = this.readableDatabase
         var list = mutableListOf<Comment>()
-        val rs = db.rawQuery("select * from comments_book", null)
+        val selection = "book_id = ?"
+        val arr = arrayOf(book_id.toString())
+        val rs = db.rawQuery("select * from comments_book where $selection", arr)
         if(rs.moveToFirst()){
             do {
                 val uId = rs.getInt(1)

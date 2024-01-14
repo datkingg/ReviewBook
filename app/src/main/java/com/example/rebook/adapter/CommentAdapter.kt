@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rebook.databinding.ActivityBinhLuanBinding
 import com.example.rebook.databinding.ItemBinhLuanBinding
@@ -20,6 +21,7 @@ class CommentAdapter(private val context: Context, private var ds: List<Comment>
     inner class CommentHolder(private val binding: ItemBinhLuanBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var currentComment: Comment? = null
+        @SuppressLint("Range")
         fun bind(comment: Comment) {
             currentComment = comment
             helper = DatabaseHelper(context)
@@ -28,12 +30,14 @@ class CommentAdapter(private val context: Context, private var ds: List<Comment>
             val arr = arrayOf(comment.userId.toString())
             val query = "select * from users where $selection"
             val rs = db.rawQuery(query, arr)
+
             if (rs.moveToFirst()) {
-                binding.tvTenUser.text = rs.getString(1)
+                binding.tvTenUser.text = rs.getString(rs.getColumnIndex("full_name"))
                 binding.tvNoiDungBinhLuan.text = currentComment!!.title
                 binding.rating.rating = currentComment!!.status.toFloat()
+            } else {
+                Toast.makeText(context, "Chưa có bình luận nào.", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 

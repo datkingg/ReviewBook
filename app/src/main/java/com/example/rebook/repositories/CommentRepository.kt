@@ -9,7 +9,7 @@ class CommentRepository(private val helper: DatabaseHelper) {
         return helper.insertComment(userId, bookId, status, title)
     }
 
-    fun getAllData():List<Comment>{
-        return helper.getAllComment()
+    fun getAllData(bookId: Int):List<Comment>{
+        return helper.getAllComment(bookId)
     }
 }
