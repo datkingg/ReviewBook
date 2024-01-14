@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logorb"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logorb"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ReBook"
+        tools:targetApi="31">
+        <activity
+            android:name=".BinhLuanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BaiVietMoiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".XoaTaiKhoanActivity"
+            android:exported="false"
+            android:label="@string/title_activity_xoa_tai_khoan"
+            android:theme="@style/Theme.ReBook" />
+        <activity
+            android:name=".XoaSuaPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BaiVietActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThongKeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AccountManagenmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookSaveActivity"
+            android:exported="false" />
+        <activity android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

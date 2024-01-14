@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="mau1">#2d3b43</color>
+    <color name="mau2">#3e515b</color>
+    <color name="mau3">#4d6471</color>
+    <color name="mau4">#5c7988</color>
+    <color name="mau5">#698899</color>
+    <color name="mau6">#809aa9</color>
+    <color name="mau7">#97adba</color>
+    <color name="mau8">#b4c5ce</color>
+    <color name="mau9">#d0dce2</color>
+
+</resources>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeAdminActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/mau9"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:paddingLeft="15dp"
+            android:text="Xin chào!" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <EditText
+                android:id="@+id/edTimKiem"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:hint="Tìm kiếm"
+                android:paddingLeft="15dp"
+                android:background="@drawable/bg_input_trong"
+                android:layout_height="50dp"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/btnTimKiem"
+                android:layout_width="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:contentDescription="tìm kiếm"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/search"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnUsers"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Quản lý tài khoản"
+                android:drawablePadding="25dp"
+                android:textColor="@color/mau1"
+                android:textSize="28sp"
+                android:fontFamily="@font/notoseriftc_medium"
+                android:background="@drawable/bg_button_trong"
+                android:backgroundTint="#00E87878"
+                android:drawableLeft="@drawable/users_solid">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btnSquare"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:text="Quản lý thống kê"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/mau1"
+                android:textSize="28sp"
+                android:drawablePadding="25dp"
+                android:fontFamily="@font/notoseriftc_medium"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_input_trong"
+                android:drawableLeft="@drawable/square_poll_vertical_solid">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btnPosts"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:text="Quản lý bài viết"
+                android:textColor="@color/mau1"
+                android:textSize="28sp"
+                android:fontFamily="@font/notoseriftc_medium"
+                android:drawablePadding="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_input_trong"
+                android:drawableLeft="@drawable/note_sticky_solid">
+
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

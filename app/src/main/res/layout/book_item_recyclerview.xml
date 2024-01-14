@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgBook"
+        android:layout_width="180dp"
+        android:layout_height="200dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="185dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtBook_name"
+            android:text="name book"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txtAuthor"
+            android:text="author name"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

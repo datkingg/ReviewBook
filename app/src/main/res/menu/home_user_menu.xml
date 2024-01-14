@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btnHome"
+        android:icon="@drawable/house_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Home" />
+    <item
+        android:id="@+id/btnSave"
+        android:icon="@drawable/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Saved" />
+    <item
+        android:id="@+id/btnProfile"
+        android:icon="@drawable/user_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Personal" />
+</menu>

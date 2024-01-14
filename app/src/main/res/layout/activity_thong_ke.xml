@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ThongKeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btnThoatTK"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="Thoat TK"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow_left_solid"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginRight="50dp"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:text="Quản lý thống kê"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/edTimKiemTK"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:hint="Nhập mã thống kê"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_trong"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/btnTimKiemTK"
+            android:contentDescription="Tìm kiếm TK"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/search"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

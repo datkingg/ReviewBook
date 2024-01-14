@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mau2"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:text="Tạo tài khoản"
+            android:textAlignment="center"
+            android:textColor="@color/mau7"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bg_signup">
+
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/bg_input_trong"
+            android:ems="10"
+            android:hint="Họ tên"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edBirthDay"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_trong"
+            android:ems="10"
+            android:hint="Ngày sinh"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnDate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <TextView
+            android:id="@+id/btnDate"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/bg_input_trong"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/edBirthDay"
+            app:layout_constraintStart_toEndOf="@+id/edBirthDay"
+            app:layout_constraintTop_toTopOf="@+id/edBirthDay"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/edEmailSign"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_input_trong"
+            android:drawableLeft="@drawable/email_solid"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edBirthDay" />
+
+        <EditText
+            android:id="@+id/edPassSign"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_input_trong"
+            android:drawableLeft="@drawable/lock_solid"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edEmailSign" />
+
+        <Button
+            android:id="@+id/btnSign"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="155dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_button"
+            android:text="Đăng ký"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edPassSign" />
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Bạn đã có tài khoản?"
+            app:layout_constraintBottom_toTopOf="@+id/btnSign"
+            app:layout_constraintStart_toStartOf="@+id/btnSign" />
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:textColor="#6A22EC"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txtLogin"
+            app:layout_constraintStart_toEndOf="@+id/txtLogin"
+            app:layout_constraintTop_toTopOf="@+id/txtLogin" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_input_trong"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/notoseriftc_medium"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Giới tính"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="@+id/edName"
+            app:layout_constraintTop_toBottomOf="@+id/edName" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/textView38"
+            app:layout_constraintTop_toBottomOf="@+id/textView38">
+
+            <RadioButton
+                android:id="@+id/radNam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notoseriftc_medium"
+                android:text="Nam"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/radNu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notoseriftc_medium"
+                android:text="Nữ"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
