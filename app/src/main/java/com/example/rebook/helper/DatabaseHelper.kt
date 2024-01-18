@@ -5,15 +5,10 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.icu.text.CaseMap.Title
-import androidx.core.content.contentValuesOf
 import com.example.rebook.model.BookSaved
 import com.example.rebook.model.Comment
 import com.example.rebook.model.Posts
 import com.example.rebook.model.Users
-import java.io.ByteArrayOutputStream
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK", null, 1){
     lateinit var db: SQLiteDatabase
@@ -225,9 +220,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK",
         return db.insert("comments_book", null, cv)
     }
 
-    fun getAllComment(book_id:Int): List<Comment>{
+    fun getCommentFilter(book_id:Int): List<Comment>{
         db = this.readableDatabase
-        var list = mutableListOf<Comment>()
+        val list = mutableListOf<Comment>()
         val selection = "book_id = ?"
         val arr = arrayOf(book_id.toString())
         val rs = db.rawQuery("select * from comments_book where $selection", arr)
@@ -243,4 +238,29 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK",
         }
         return list
     }
+
+    fun getAllComment(): Float{
+        db = this.readableDatabase
+        val rs = db.rawQuery("select * from comments_book", null)
+        return if (rs.moveToFirst()){
+            rs.count.toFloat()
+        } else 0.0f
+    }
+
+    fun getAllUserSquare(): Float{
+        db = this.readableDatabase
+        val rs = db.rawQuery("select * from users", null)
+        return if(rs.moveToFirst()){
+            rs.count.toFloat()
+        }else 0.0f
+    }
+
+    fun getAllBookSquare(): Float{
+        db = this.readableDatabase
+        val rs = db.rawQuery("select * from books", null)
+        return if (rs.moveToFirst()){
+            rs.count.toFloat()
+        }else 0.0f
+    }
+
 }

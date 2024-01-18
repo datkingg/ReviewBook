@@ -5,18 +5,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rebook.adapter.CommentAdapter
 import com.example.rebook.databinding.ActivityBinhLuanBinding
 import com.example.rebook.factory.CommentFactory
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.Comment
 import com.example.rebook.model.CommentViewModel
-import com.example.rebook.model.Posts
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -108,7 +104,7 @@ class BinhLuanActivity : AppCompatActivity() {
 
     private fun loadDataFromDatabase() {
         CoroutineScope(Dispatchers.IO).launch {
-            val commentList = helper.getAllComment(bookId)
+            val commentList = helper.getCommentFilter(bookId)
             withContext(Dispatchers.Main) {
                 viewModel.updateCommentList(commentList)
             }

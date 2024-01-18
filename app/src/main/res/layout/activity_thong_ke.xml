@@ -57,11 +57,32 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
+        android:orientation="vertical">
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChar"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="13dp">
+            <TableRow>
+                <TextView
+                    android:text="@string/danh_m_c"
+                    android:textStyle="bold"
+                    android:padding="8dp"/>
+                <TextView
+                    android:text="@string/s_l_ng"
+                    android:textStyle="bold"
+                    android:padding="8dp"/>
+            </TableRow>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </TableLayout>
+    </LinearLayout>
 </LinearLayout>

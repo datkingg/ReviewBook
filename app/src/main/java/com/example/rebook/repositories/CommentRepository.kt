@@ -10,6 +10,6 @@ class CommentRepository(private val helper: DatabaseHelper) {
     }
 
     fun getAllData(bookId: Int):List<Comment>{
-        return helper.getAllComment(bookId)
+        return helper.getCommentFilter(bookId)
     }
 }
