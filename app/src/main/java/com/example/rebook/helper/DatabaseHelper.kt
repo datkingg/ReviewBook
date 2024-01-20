@@ -239,7 +239,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK",
         return list
     }
 
-    fun getAllComment(): Float{
+    fun getAllCommentSquare(): Float{
         db = this.readableDatabase
         val rs = db.rawQuery("select * from comments_book", null)
         return if (rs.moveToFirst()){
@@ -261,6 +261,25 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "DB_RE_BOOK",
         return if (rs.moveToFirst()){
             rs.count.toFloat()
         }else 0.0f
+    }
+
+    fun getStatusCommentSquare():List<Comment>{
+        val list = mutableListOf<Comment>()
+        db = this.readableDatabase
+
+        val rs = db.rawQuery("select * from comments_book", null)
+
+        if(rs.moveToFirst()){
+            do {
+                val uID = rs.getInt(1)
+                val bookId = rs.getInt(2)
+                val status = rs.getInt(3)
+                val title = rs.getString(4)
+                val cmt = Comment(uID,bookId, status, title)
+                list.add(cmt)
+            }while (rs.moveToNext())
+        }
+        return list
     }
 
 }

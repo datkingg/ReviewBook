@@ -48,4 +48,7 @@
     <string name="trang_chu">trang chu</string>
     <string name="danh_m_c">Danh mục</string>
     <string name="s_l_ng">Số lượng</string>
+    <string name="description">description</string>
+    <string name="t_ng_qu_t">Tổng quát</string>
+    <string name="nh_gi">Đánh giá</string>
 </resources>

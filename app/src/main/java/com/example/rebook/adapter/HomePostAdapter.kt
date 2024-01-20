@@ -35,12 +35,18 @@ class HomePostAdapter(
                 val author = rs.getString(3)
                 val category = rs.getInt(4)
                 val NXB = rs.getString(5)
-                binding.tvNXB.text = NXB
+                binding.tvNXB.setText(NXB)
                 binding.tvNameBook.text = name
-                binding.tvTacGiaa.text = author
-                binding.tvTheLoaij.text = category.toString()
-                binding.tvTenSach.text = name
+                binding.tvTacGiaa.setText(author)
+                binding.tvTenSach.setText(name)
                 binding.tvGioiThieu.setText(posts.body)
+                val selection = "category_id = ?"
+                val arr = arrayOf(category.toString())
+                val rs = db.rawQuery("select * from categories where $selection", arr)
+                if(rs.moveToFirst()){
+                    binding.tvTheLoaij.setText(rs.getString(1))
+                    rs.close()
+                }
                 val bitmapImg = BitmapFactory.decodeByteArray(imgByteArray, 0, imgByteArray.size)
                 binding.imgBook.setImageBitmap(bitmapImg)
             }

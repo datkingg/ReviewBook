@@ -86,7 +86,7 @@ class BinhLuanActivity : AppCompatActivity() {
             var rate = binding.rateUser.rating.toInt()
             val title = binding.edBinhLuan.text.toString().trim()
             if (TextUtils.isEmpty(rate.toString())) {
-                rate = 5
+                binding.rateUser.rating = 3.0f
             } else if (TextUtils.isEmpty(title)) {
                 binding.edBinhLuan.error = "Comment is empty"
                 binding.edBinhLuan.focusable

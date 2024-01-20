@@ -13,5 +13,10 @@
     <color name="mau9">#d0dce2</color>
     <color name="mau10">#F81E4E</color>
     <color name="mau11">#E675BD</color>
-    <color name="mau12">#7379EC</color>
+    <color name="mau12">#73B1E8</color>
+    <color name="red">#E14646</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#FFD700</color>
+    <color name="green">#52E158</color>
+    <color name="blue">#03A9F4</color>
 </resources>

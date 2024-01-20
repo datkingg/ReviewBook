@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var rs: Cursor
     lateinit var adapter: SimpleCursorAdapter
     private lateinit var mEmail: String
-    private val dataViewModel: UserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
