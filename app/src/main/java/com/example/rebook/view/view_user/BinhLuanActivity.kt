@@ -1,4 +1,4 @@
-package com.example.rebook
+package com.example.rebook.view.view_user
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -12,7 +12,7 @@ import com.example.rebook.adapter.CommentAdapter
 import com.example.rebook.databinding.ActivityBinhLuanBinding
 import com.example.rebook.factory.CommentFactory
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.CommentViewModel
+import com.example.rebook.view_model.CommentViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

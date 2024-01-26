@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.BookViewModel
+import com.example.rebook.view_model.BookViewModel
 import com.example.rebook.repositories.BookRepository
 
 class BookFactory(private val context: Context): ViewModelProvider.Factory {

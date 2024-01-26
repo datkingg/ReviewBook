@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".PostActivity">
+    tools:context=".view.view_user.PostActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1">
 
         <ImageView
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvTacGiaa"
             android:layout_width="175dp"
             android:layout_height="50dp"
@@ -83,7 +83,7 @@
             app:layout_constraintStart_toEndOf="@+id/imgBook"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvTenSach"
             android:layout_width="175dp"
             android:layout_height="50dp"
@@ -122,7 +122,7 @@
             app:layout_constraintStart_toEndOf="@+id/textView37"
             app:layout_constraintTop_toBottomOf="@+id/tvTacGiaa" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvNXB"
             android:layout_width="175dp"
             android:layout_height="50dp"
@@ -149,7 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgBook" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvTheLoaij"
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -173,25 +173,20 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTheLoaij" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/tvGioiThieu"
             android:layout_width="355dp"
             android:layout_height="200dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="26dp"
-            android:ems="10"
             android:fontFamily="@font/notoseriftc_medium"
             android:gravity="start|top"
-            android:lineSpacingMultiplier="10"
-            android:lines="3"
-            android:text="@string/app_name"
-            android:maxLines="5"
-            android:inputType="textMultiLine"
+            android:focusable="false"
+            android:hint="@string/app_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView41"
-            tools:ignore="TextViewEdits" />
+            app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

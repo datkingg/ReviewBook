@@ -1,4 +1,4 @@
-package com.example.rebook
+package com.example.rebook.view.view_user
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SimpleCursorAdapter
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import com.example.rebook.R
 import com.example.rebook.databinding.ActivityMainBinding
 import com.example.rebook.fragment.HomeFragment
 import com.example.rebook.fragment.PersonalFragment
 import com.example.rebook.fragment.SaveBookFragment
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.UserViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

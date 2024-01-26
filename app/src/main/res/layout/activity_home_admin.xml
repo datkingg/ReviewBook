@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeAdminActivity">
+    tools:context=".view.view_admin.HomeAdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

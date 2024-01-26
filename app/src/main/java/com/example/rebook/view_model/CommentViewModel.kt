@@ -1,8 +1,9 @@
-package com.example.rebook.model
+package com.example.rebook.view_model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.rebook.model.Comment
 import com.example.rebook.repositories.CommentRepository
 
 class CommentViewModel(private val repository: CommentRepository):ViewModel() {

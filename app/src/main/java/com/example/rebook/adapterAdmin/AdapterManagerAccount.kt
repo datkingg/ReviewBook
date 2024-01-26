@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rebook.AccountManagenmentActivity
 import com.example.rebook.databinding.UserItemBinding
 import com.example.rebook.fragment.SubItemButtonClickListener
 import com.example.rebook.helper.DatabaseHelper
@@ -67,13 +66,15 @@ class AdapterManagerAccount(
     override fun getFilter(): Filter {
         val filter = object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                var strSearch = constraint.toString()
+                val strSearch = constraint.toString()
                 ds = if(strSearch.isEmpty()){
                     ds2
                 }else{
                     val list: ArrayList<Users> = arrayListOf()
                     ds2.forEach{
-                        if(it.fullname.lowercase(Locale.getDefault()).contains(strSearch.toLowerCase(Locale.getDefault()))){
+                        if(it.fullname.lowercase(Locale.getDefault()).contains(strSearch.lowercase(
+                                Locale.getDefault()
+                            ))){
                             list.add(it)
                         }
                     }

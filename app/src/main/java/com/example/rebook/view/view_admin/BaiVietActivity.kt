@@ -1,10 +1,9 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rebook.adapterAdmin.AdapterManagerPost
@@ -12,7 +11,7 @@ import com.example.rebook.databinding.ActivityBaiVietBinding
 import com.example.rebook.factory.PostFactory
 import com.example.rebook.fragment.SubItemButtonClickListener
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.PostViewModel
+import com.example.rebook.view_model.PostViewModel
 import com.example.rebook.model.Posts
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

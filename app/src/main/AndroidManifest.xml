@@ -19,47 +19,47 @@
         android:theme="@style/Theme.ReBook"
         tools:targetApi="31">
         <activity
-            android:name=".BinhLuanActivity"
+            android:name=".view.view_user.BinhLuanActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileAdminActivity"
+            android:name=".view.view_admin.ProfileAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".BaiVietMoiActivity"
+            android:name=".view.view_admin.BaiVietMoiActivity"
             android:exported="false" />
         <activity
-            android:name=".XoaTaiKhoanActivity"
+            android:name=".view.view_admin.XoaTaiKhoanActivity"
             android:exported="false"
             android:label="@string/title_activity_xoa_tai_khoan"
             android:theme="@style/Theme.ReBook" />
         <activity
-            android:name=".XoaSuaPostActivity"
+            android:name=".view.view_admin.XoaSuaPostActivity"
             android:exported="false" />
         <activity
-            android:name=".BaiVietActivity"
+            android:name=".view.view_admin.BaiVietActivity"
             android:exported="false" />
         <activity
-            android:name=".ThongKeActivity"
+            android:name=".view.view_admin.ThongKeActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountManagenmentActivity"
+            android:name=".view.view_admin.AccountManagenmentActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeAdminActivity"
+            android:name=".view.view_admin.HomeAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".PostActivity"
+            android:name=".view.view_user.PostActivity"
             android:exported="false" />
         <activity
-            android:name=".BookSaveActivity"
+            android:name=".view.view_user.BookSaveActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".view.view_user.MainActivity"
             android:exported="false"/>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.sign_in.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.sign_in.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.rebook.model
+package com.example.rebook.view_model
 
 import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel

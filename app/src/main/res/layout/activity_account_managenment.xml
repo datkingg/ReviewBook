@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountManagenmentActivity">
+    tools:context=".view.view_admin.AccountManagenmentActivity">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"

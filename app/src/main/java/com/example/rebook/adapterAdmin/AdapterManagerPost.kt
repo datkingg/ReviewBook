@@ -45,12 +45,12 @@ class AdapterManagerPost(
                 val arrCate = arrayOf(category.toString())
                 rs = db.rawQuery("select * from categories where $selectionCate", arrCate)
                 if(rs.moveToFirst()){
-                    binding.tvNXB.text = NXB
+                    binding.tvNXB.setText(NXB)
                     binding.tvNameBook.text = name
-                    binding.tvTacGiaa.text = author
-                    binding.tvTheLoaij.text = rs.getString(1)
-                    binding.tvTenSach.text = name
-                    binding.tvGioiThieu.text = posts.body
+                    binding.tvTacGiaa.setText(author)
+                    binding.tvTheLoaij.setText(rs.getString(1))
+                    binding.tvTenSach.setText(name)
+                    binding.tvGioiThieu.setText(posts.body)
                     val bitmapImg = BitmapFactory.decodeByteArray(imgByteArray, 0, imgByteArray.size)
                     binding.imgBook.setImageBitmap(bitmapImg)
                     rs.close()

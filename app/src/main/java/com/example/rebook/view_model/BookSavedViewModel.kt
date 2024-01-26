@@ -1,4 +1,4 @@
-package com.example.rebook.model
+package com.example.rebook.view_model
 
 import androidx.lifecycle.ViewModel
 import com.example.rebook.repositories.BookSavedRepository

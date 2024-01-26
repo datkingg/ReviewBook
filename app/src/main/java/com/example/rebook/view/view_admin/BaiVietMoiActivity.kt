@@ -1,8 +1,7 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
@@ -21,12 +20,10 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toBitmap
 import com.example.rebook.databinding.ActivityBaiVietMoiBinding
 import com.example.rebook.helper.DatabaseHelper
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
-import java.io.InputStream
 
 @Suppress("DEPRECATION")
 class BaiVietMoiActivity : AppCompatActivity() {

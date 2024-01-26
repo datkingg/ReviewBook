@@ -1,4 +1,4 @@
-package com.example.rebook
+package com.example.rebook.view.sign_in
 
 import android.app.DatePickerDialog
 import android.content.ContentValues
@@ -9,11 +9,10 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.CalendarView
+import android.util.Patterns
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.example.rebook.R
 import com.example.rebook.databinding.ActivityRegisterBinding
 import com.example.rebook.helper.DatabaseHelper
 import java.util.Calendar
@@ -34,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         db = helper.readableDatabase
         rs = db.rawQuery("SELECT * FROM users", null)
 
-        binding.btnDate.setText(today.get(Calendar.DAY_OF_MONTH).toString())
+        binding.btnDate.text = today.get(Calendar.DAY_OF_MONTH).toString()
         binding.btnDate.setOnClickListener {
             val startDay = today.get(Calendar.DAY_OF_MONTH)
             val startMonth = today.get(Calendar.MONTH)
@@ -51,17 +50,17 @@ class RegisterActivity : AppCompatActivity() {
                 binding.edName.error = "Full name can not be empty"
                 binding.edName.focusable
             }
-            else if(TextUtils.isEmpty(binding.edEmailSign.text)){
-                binding.edName.error = "Email can not be empty"
-                binding.edName.focusable
+            else if(TextUtils.isEmpty(binding.edEmailSign.text) || !Patterns.EMAIL_ADDRESS.matcher(binding.edEmailSign.text).matches()){
+                binding.edEmailSign.error = "Email is not valid"
+                binding.edEmailSign.focusable
             }
             else if(TextUtils.isEmpty(binding.edBirthDay.text)){
-                binding.edName.error = "Birthday can not be empty"
-                binding.edName.focusable
+                binding.edBirthDay.error = "Birthday can not be empty"
+                binding.edBirthDay.focusable
             }
-            else if(TextUtils.isEmpty(binding.edPassSign.text)){
-                binding.edName.error = "Password can not be empty"
-                binding.edName.focusable
+            else if(TextUtils.isEmpty(binding.edPassSign.text) || binding.edPassSign.text.toString().length < 8){
+                binding.edPassSign.error = "Password is not valid"
+                binding.edPassSign.focusable
             }
             else if(!binding.radNam.isChecked && !binding.radNu.isChecked){
                 Toast.makeText(this@RegisterActivity, "Bạn chưa chọn giới tính", Toast.LENGTH_SHORT ).show()
@@ -80,7 +79,7 @@ class RegisterActivity : AppCompatActivity() {
                     binding.edBirthDay.text.toString(),
                     binding.edPassSign.text.toString())
                 Toast.makeText(this@RegisterActivity, "Register successful", Toast.LENGTH_SHORT).show()
-                val i = Intent(applicationContext,LoginActivity::class.java)
+                val i = Intent(applicationContext, LoginActivity::class.java)
                 startActivities(arrayOf(i))
                 binding.edName.setText("")
                 binding.radioGroup.clearCheck()
@@ -91,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val i = Intent(this@RegisterActivity,LoginActivity::class.java)
+            val i = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivities(arrayOf(i))
         }
     }

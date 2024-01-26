@@ -1,12 +1,14 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rebook.R
 import com.example.rebook.databinding.ActivityThongKeBinding
 import com.example.rebook.fragmentAdmin.CommentFragment
 import com.example.rebook.fragmentAdmin.GeneralFragment
 import com.example.rebook.helper.DatabaseHelper
 
+@Suppress("DEPRECATION")
 class ThongKeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityThongKeBinding
     private lateinit var helper: DatabaseHelper
@@ -20,29 +22,56 @@ class ThongKeActivity : AppCompatActivity() {
         val subGeneralFragment = GeneralFragment()
         val subCommentFragment = CommentFragment()
 
+
+        supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(
+                R.anim.right_to_left,
+                R.anim.exit_right_to_left,
+                R.anim.left_to_right,
+                R.anim.exit_left_to_right
+            )
+            replace(R.id.flSquare, subGeneralFragment)
+            commit()
+        }
         binding.btNavSquareAdmin.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.general -> {
                     supportFragmentManager.beginTransaction().apply {
-                        setCustomAnimations(R.anim.right_to_left, R.anim.exit_right_to_left, R.anim.left_to_right, R.anim.exit_left_to_right)
+                        setCustomAnimations(
+                            R.anim.right_to_left,
+                            R.anim.exit_right_to_left,
+                            R.anim.left_to_right,
+                            R.anim.exit_left_to_right
+                        )
                         replace(R.id.flSquare, subGeneralFragment)
                         commit()
                     }
                 }
+
                 R.id.comment -> {
                     supportFragmentManager.beginTransaction().apply {
-                        setCustomAnimations(R.anim.right_to_left, R.anim.exit_right_to_left, R.anim.left_to_right, R.anim.exit_left_to_right)
+                        setCustomAnimations(
+                            R.anim.right_to_left,
+                            R.anim.exit_right_to_left,
+                            R.anim.left_to_right,
+                            R.anim.exit_left_to_right
+                        )
                         replace(R.id.flSquare, subCommentFragment)
                         commit()
                     }
                 }
-                else ->{
+
+                else -> {
 
                 }
             }
 
             false
         }
+        binding.btnExit.setOnClickListener {
+            onBackPressed()
+        }
+
 //        val getData = getDataFromDatabase()
 //        val barDataSet = mutableListOf<IBarDataSet>()
 //        val labels = listOf("users","comments", "books", "post")
@@ -71,14 +100,14 @@ class ThongKeActivity : AppCompatActivity() {
 //        binding.barChar.invalidate()
     }
 
-    private fun getDataFromDatabase(): ArrayList<Float>{
+    private fun getDataFromDatabase(): ArrayList<Float> {
         val allUser = helper.getAllUserSquare()
         val allComment = helper.getAllCommentSquare()
         val allBook = helper.getAllBookSquare()
         val pots = helper.getAllPost()
         val allPosts = pots.size.toFloat()
 
-        return arrayListOf(allUser, allComment, allBook,allPosts)
+        return arrayListOf(allUser, allComment, allBook, allPosts)
     }
 
 //    private fun addRowToTable(tableLayout: TableLayout, name: String, count: String) {

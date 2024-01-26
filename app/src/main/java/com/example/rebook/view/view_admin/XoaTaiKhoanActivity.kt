@@ -1,17 +1,12 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.rebook.databinding.ActivityXoaTaiKhoanBinding
 import com.example.rebook.factory.UserViewModelFactory
-import com.example.rebook.model.UserViewModel
+import com.example.rebook.view_model.UserViewModel
 import com.example.rebook.model.Users
 
 @Suppress("DEPRECATION")
@@ -72,7 +67,7 @@ class XoaTaiKhoanActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        if(alertDialog != null && alertDialog.isShowing){
+        if (::alertDialog.isInitialized && alertDialog.isShowing) {
             alertDialog.dismiss()
         }
         super.onDestroy()

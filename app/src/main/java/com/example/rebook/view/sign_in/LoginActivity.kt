@@ -1,26 +1,20 @@
-package com.example.rebook
+package com.example.rebook.view.sign_in
 
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.ViewModelProvider
 import com.example.rebook.databinding.ActivityLoginBinding
-import com.example.rebook.databinding.ActivityRegisterBinding
-import com.example.rebook.factory.BookFactory
-import com.example.rebook.factory.PostFactory
-import com.example.rebook.factory.UserViewModelFactory
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.BookViewModel
-import com.example.rebook.model.PostViewModel
-import com.example.rebook.model.UserViewModel
+import com.example.rebook.view.view_admin.HomeAdminActivity
+import com.example.rebook.view.view_user.MainActivity
+import com.example.rebook.view_model.PostViewModel
+import com.example.rebook.view_model.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
 

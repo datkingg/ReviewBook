@@ -1,5 +1,7 @@
 package com.example.rebook.fragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -11,11 +13,11 @@ import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.rebook.LoginActivity
+import com.example.rebook.view.sign_in.LoginActivity
 import com.example.rebook.R
 import com.example.rebook.databinding.FragmentPersonalBinding
 import com.example.rebook.factory.UserViewModelFactory
-import com.example.rebook.model.UserViewModel
+import com.example.rebook.view_model.UserViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -33,6 +35,7 @@ class PersonalFragment : Fragment() {
     private var isEditingEnabled = false
     private lateinit var editTexts: List<EditText>
     private lateinit var viewModel: UserViewModel
+    private lateinit var alertDialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,27 +107,58 @@ class PersonalFragment : Fragment() {
             else{
                 binding.imgChangeSave.setImageResource(R.drawable.check_solid)
                 enableEditing(binding)
-                val viewModelFactory = UserViewModelFactory(requireContext())
-                viewModel = ViewModelProvider(this, viewModelFactory)[UserViewModel::class.java]
-                if (id != null) {
-                    viewModel.updateUserData(
-                        id,
-                        binding.edNamePro.text.toString().trim(),
-                        binding.edEmailPro.text.toString().trim(),
-                        binding.edGenderPro.text.toString().trim(),
-                        binding.edBirthPro.text.toString().trim(),
-                        binding.edPassPro.text.toString().trim(),
-                    )
-                }
+                    val viewModelFactory = UserViewModelFactory(requireContext())
+                    viewModel = ViewModelProvider(this, viewModelFactory)[UserViewModel::class.java]
+                    if (id != null) {
+                        viewModel.updateUserData(
+                            id,
+                            binding.edNamePro.text.toString().trim(),
+                            binding.edEmailPro.text.toString().trim(),
+                            binding.edGenderPro.text.toString().trim(),
+                            binding.edBirthPro.text.toString().trim(),
+                            binding.edPassPro.text.toString().trim(),
+                        )
+                    }
+
             }
         }
 
         binding.btnLogOut.setOnClickListener {
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            requireActivity().finish()
+            showAlertDialog("Đăng xuất", "Bạn chắc chắn muốn đăng xuất"){
+                _,_ ->performLogout()
+            }
+
         }
+    }
+
+    private fun showAlertDialog(
+        title: String,
+        message: String,
+        positiveClickListener: DialogInterface.OnClickListener
+    ) {
+        alertDialog = AlertDialog.Builder(requireContext())
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("OK", positiveClickListener)
+            .setNegativeButton("Cancel") { _, _ ->
+                // Xử lý khi người dùng nhấn nút Cancel
+            }
+            .create()
+        alertDialog.show()
+    }
+
+    private fun performLogout(){
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
+    }
+
+    override fun onDestroyView() {
+        if (::alertDialog.isInitialized && alertDialog.isShowing) {
+            alertDialog.dismiss()
+        }
+        super.onDestroyView()
     }
 
 

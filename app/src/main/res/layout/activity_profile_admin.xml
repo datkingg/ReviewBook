@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileAdminActivity">
+    tools:context=".view.view_admin.ProfileAdminActivity">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
@@ -147,16 +147,23 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edEmailAd" />
 
-                <EditText
-                    android:id="@+id/edMatKhauAd"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordTextInputLayout"
                     android:layout_width="350dp"
-                    android:layout_height="50dp"
-                    android:ems="10"
-                    android:inputType="text"
+                    android:layout_height="60dp"
+                    app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.491"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView27">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edMatKhauAd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <Button
                     android:id="@+id/btnLogout"
@@ -166,7 +173,7 @@
                     android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="@+id/edTenAdmin"
                     app:layout_constraintStart_toStartOf="@+id/edTenAdmin"
-                    app:layout_constraintTop_toBottomOf="@+id/edMatKhauAd" />
+                    app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 

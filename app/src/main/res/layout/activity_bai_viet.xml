@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BaiVietActivity">
+    tools:context=".view.view_admin.BaiVietActivity">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"

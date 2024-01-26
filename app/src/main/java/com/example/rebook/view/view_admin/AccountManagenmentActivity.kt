@@ -1,12 +1,10 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rebook.adapterAdmin.AdapterManagerAccount
@@ -17,10 +15,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.appcompat.widget.SearchView
 import com.example.rebook.fragment.SubItemButtonClickListener
 import com.example.rebook.model.Posts
-import java.util.Locale
 
 @Suppress("DEPRECATION")
 class AccountManagenmentActivity : AppCompatActivity() {
@@ -137,5 +133,10 @@ class AccountManagenmentActivity : AppCompatActivity() {
             }
         }
         return helper.getAllUser()
+    }
+
+    override fun onResume() {
+        loadUserDatabase()
+        super.onResume()
     }
 }

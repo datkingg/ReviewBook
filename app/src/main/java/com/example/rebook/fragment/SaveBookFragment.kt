@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.rebook.adapter.HomePostAdapter
 import com.example.rebook.adapter.SavedBookAdapter
 import com.example.rebook.databinding.FragmentSaveBookBinding
 import com.example.rebook.helper.DatabaseHelper
 import com.example.rebook.model.BookSaved
-import com.example.rebook.model.BookSavedViewModel
+import com.example.rebook.view_model.BookSavedViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

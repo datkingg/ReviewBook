@@ -10,13 +10,13 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rebook.BinhLuanActivity
+import com.example.rebook.view.view_user.BinhLuanActivity
 import com.example.rebook.adapter.HomePostAdapter
 import com.example.rebook.databinding.FragmentHomeBinding
 import com.example.rebook.factory.BookSavedFactory
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.BookSavedViewModel
-import com.example.rebook.model.BookViewModel
+import com.example.rebook.view_model.BookSavedViewModel
+import com.example.rebook.view_model.BookViewModel
 import com.example.rebook.model.Posts
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
                             viewModelFactory
                         )[BookSavedViewModel::class.java]
                         viewModel.insertBookSaved(bookId, userId)
-                        Toast.makeText(requireContext(), "luu thanh cong", Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), "Lưu thành công", Toast.LENGTH_SHORT)
                             .show()
                     }
 

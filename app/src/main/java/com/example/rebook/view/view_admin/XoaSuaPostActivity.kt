@@ -1,4 +1,4 @@
-package com.example.rebook
+package com.example.rebook.view.view_admin
 
 import android.content.Intent
 import android.database.Cursor
@@ -14,11 +14,12 @@ import com.example.rebook.databinding.ActivityXoaSuaPostBinding
 import com.example.rebook.factory.BookFactory
 import com.example.rebook.factory.PostFactory
 import com.example.rebook.helper.DatabaseHelper
-import com.example.rebook.model.BookViewModel
+import com.example.rebook.view_model.BookViewModel
 import com.example.rebook.model.Books
-import com.example.rebook.model.PostViewModel
+import com.example.rebook.view_model.PostViewModel
 import java.io.ByteArrayOutputStream
 
+@Suppress("DEPRECATION")
 class XoaSuaPostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityXoaSuaPostBinding
     private lateinit var helper: DatabaseHelper
@@ -111,11 +112,7 @@ class XoaSuaPostActivity : AppCompatActivity() {
             }
         }
         binding.btnExit.setOnClickListener {
-            val intent = Intent(
-                this,
-                BaiVietActivity::class.java
-            )
-            startActivity(intent)
+            onBackPressed()
         }
 
     }
